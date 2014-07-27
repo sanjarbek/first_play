@@ -1,0 +1,31 @@
+@(clients: List[Client])
+
+@main("List of clients") {
+    <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-striped">
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>Firstname</th>
+                    <th>Surname</th>
+                    <th>Birthday</th>
+                    <th><a href="@routes.Clients.create()" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus" ></span> Добавить</a> </th>
+                </tr>
+                @for(client <- clients){
+                    <tr>
+                        <td>@client.id</td>
+                        <td>@client.firstname</td>
+                        <td>@client.surname</td>
+                        <td>@client.birthday.format("dd.MM.yyyy")</td>
+                        <td>
+                            <a href="@routes.Clients.show(client.id)" data-toogle="tooltip" data-placement="top" title="Подробнее"><span class="glyphicon glyphicon-eye-open"></span></a> &nbsp;
+                            <a href="@routes.Clients.edit(client.id)" data-toogle="tooltip" data-placement="top" title="Редактировать"><span class="glyphicon glyphicon-edit"></span></a> &nbsp;
+                            <a href="@routes.Clients.delete(client.id)" data-toogle="tooltip" data-placement="top" title="Удалить"><span class="glyphicon glyphicon-remove"></span></a>
+                            <a href="@routes.Clients.editPassword(client.id)" data-toogle="tooltip" data-placement="top" title="Редактировать пароль"><span class="glyphicon glyphicon-paperclip"></span></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

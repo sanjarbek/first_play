@@ -1,0 +1,18 @@
+@(fClient: Form[Client])
+
+
+@main("Create new client") {
+    <div class="row">
+        <div class="col-sm-8 col-offcol-sm-2">
+            @helper.form(action=routes.Clients.create()) {
+                @helper.inputText(fClient("username"))
+                @helper.inputText(fClient("firstname"))
+                @helper.inputText(fClient("surname"))
+                @helper.inputDate(fClient("birthday"))
+                <div class="">
+                    <input type="submit" name="save" value="Сохранить" />
+                </div>
+            }
+        </div>
+    </div>
+}

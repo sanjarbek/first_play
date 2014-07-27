@@ -1,0 +1,22 @@
+@(client: Client)
+
+@main("Show client: " + client.id) {
+    <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-striped">
+            <tbody>
+                <tr>
+                    <th>ID</th><td>@client.id</td>
+                </tr>
+                <tr>
+                    <th>Firstname</th><td>@client.firstname</td>
+                </tr>
+                <tr>
+                    <th>Surname</th><td>@client.surname</td>
+                </tr>
+                <tr>
+                    <th>Birthday</th><td>@client.birthday.format("dd.MM.yyyy")</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}

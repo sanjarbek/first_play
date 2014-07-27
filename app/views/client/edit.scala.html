@@ -1,0 +1,17 @@
+@(clientForm: Form[Client], id: Long)
+
+@main("Edit client: " + id) {
+    <div class="row">
+        <div class="col-sm-8 col-offcol-sm-2">
+        @helper.form(action=routes.Clients.edit(id)) {
+            @helper.inputText(clientForm("username"))
+            @helper.inputText(clientForm("firstname"))
+            @helper.inputText(clientForm("surname"))
+            @helper.inputDate(clientForm("birthday"))
+            <div class="">
+                <input type="submit" name="save" value="Сохранить" />
+            </div>
+        }
+        </div>
+    </div>
+}
